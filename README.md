@@ -1,4 +1,4 @@
-# removify
+# Vue snippet code
 
 Vue.js SFC file snippet to renders a table, and via (pretend) endpoint call, populate itself with the following columns: ID, Name, Email, Phone.
 
