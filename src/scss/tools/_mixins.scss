@@ -1,0 +1,39 @@
+// Breakpoint mixin
+// Uses $breakpoints variable set in _config.scss file
+@mixin bp($size) {
+
+	@if (type-of($size) == "number") {
+
+		@media (min-width: $size) {
+			@content;
+		}
+	} @else if (type-of($size) == "string") {
+
+		@each $breakpoint in $breakpoints {
+			// Get the name of the breakpoint.
+			$alias: nth($breakpoint, 1);
+
+			@if ($size == $alias) {
+				$start: bp-config-value($breakpoint, "start");
+			@media (min-width: $start) {
+				@content;
+			}
+		}
+	}
+	} @else {
+		@warn "Unfortunately, no value could be retrieved from '#{$size}'. Please make sure it is defined in '$breakpoints' map.";
+	}
+}
+
+// Retrieve value from breakpoint config map
+// $bp: breakpoint list
+// $key: string value of key to return
+@function bp-config-value($breakpoint, $value) {
+	$config: nth($breakpoint, 2);
+
+	@if (map-has-key($config, $value)) {
+		@return map-get($config, $value);
+	} @else {
+		@warn "Unfortunately, no value could be retrieved for '#{$value}'. Please make sure it is a key defined in '$breakpoints' config map";
+	}
+}

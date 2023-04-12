@@ -1,0 +1,53 @@
+// color variable
+$black: #000;
+$white: #fff;
+$grey--light: #e1e1e1;
+$grey: #ccc;
+$grey--dark: #2c3e50;
+$blue: #226b96;
+
+// Spacings
+// $bsu: Base spacing unit
+// $tsu: Tiny spacing unit
+// $ssu: Small spacing unit
+// $lsu: Large spacing unit
+$bsu: 20px;
+$lsu: $bsu * 2;
+$ssu: $bsu / 2;
+$tsu: $bsu / 4;
+
+// Layout
+$layout-wrapper-max-width: 1600px;
+
+// Breakpoints
+// Suffixes used for namespaced helpers
+// Pixel values will be output as em units
+$breakpoints: (
+	"extra-small" (
+		"suffix": "xs",
+		"start": 0,
+		"end": 479px
+	),
+	"small" (
+		"suffix": "s",
+		"start": 480px,
+		"end": 767px
+	),
+	"medium" (
+		"suffix": "m",
+		"start": 768px,
+		"end": 1023px
+	),
+	"large" (
+		"suffix": "l",
+		"start": 1024px,
+		"end": 1279px
+	),
+	"extra-large" (
+		"suffix": "xl",
+		"start": 1280px,
+		"end": 9000px
+	)
+);
+
+$borderRadius: 4px;

@@ -1,0 +1,24 @@
+.l-page-wrapper {
+    max-width: $layout-wrapper-max-width;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 $bsu;
+
+    // Remove padding on sides if a layout-wrapper is nested within a layout-wrapper
+    .l-page-wrapper {
+		padding-left: 0;
+		padding-right: 0;
+    }
+}
+
+$gridsize: 12;
+
+@for $i from 1 through $gridsize{
+	.col-#{$i}{
+		width: 100%;
+
+		@include bp('medium') {
+			width:  ( $i /$gridsize ) * 100%;	
+		}
+	}
+}
